@@ -1,4 +1,57 @@
-const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+const letters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 
 function decimalToX(input, base, result) {
   if (result === undefined) result = [];
@@ -30,7 +83,7 @@ function xToDecimal(input, base) {
 
   for (let i = 0, j = input.length - 1; i < input.length; i++, j--) {
     if (input[i] >= base) {
-      alert(`Valor ${input[i]} não permitido para a base selecionada`);
+      alert("Valor não permitido para a base selecionada");
       throw Error("f");
     }
     sum += input[i] * base ** j;
