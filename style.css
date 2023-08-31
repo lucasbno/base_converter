@@ -14,7 +14,6 @@ body {
   margin: 0;
 }
 
-/* Style the main container */
 .main {
   display: flex;
   justify-content: space-between;
