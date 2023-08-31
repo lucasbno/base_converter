@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base converter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div>
+        <p>Base entrada</p>
+        <select id="input-bases">
+          <option value="10">Decimal</option>
+          <option value="2">Binario</option>
+          <option value="8">Octagonal</option>
+          <option value="16">Hexadecimal</option>
+        </select>
+      </div>
+      <div>
+        <p>Valor entrada</p>
+        <input id="input-value" type="text" />
+      </div>
+    </div>
+    <button onclick="convertValues()">Converter</button>
+    <div class="main">
+      <div>
+        <p>Resultado</p>
+        <input id="result" readonly type="text" />
+      </div>
+      <div>
+        <p>Base saída</p>
+        <select name="" id="output-bases">
+          <option value="10">Decimal</option>
+          <option selected value="2">Binario</option>
+          <option value="8">Octagonal</option>
+          <option value="16">Hexadecimal</option>
+        </select>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+  <script src="converter.js"></script>
+</html>
