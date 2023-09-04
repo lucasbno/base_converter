@@ -1,40 +1,44 @@
-const resultElement = document.querySelector("#result");
+const resultElement = document.querySelector("#result")
 
-function createLists() {
-  const inputList = document.querySelector("#input-bases");
-  const outputList = document.querySelector("#output-bases");
-
-  fillList(inputList);
-  fillList(outputList);
-}
-
-function fillList(list) {
+function createListElements(list) {
   for (let i = 2; i <= 62; i++) {
-    const listItem = document.createElement("option");
-    listItem.className = "base";
-    listItem.value = i;
-    listItem.innerHTML = `Base ${i}`;
-    list.appendChild(listItem);
+    const listItem = document.createElement("option")
+    listItem.className = "base"
+    listItem.value = i
+    listItem.innerHTML = `Base ${i}`
+    list.appendChild(listItem)
   }
 }
 
+function fillLists() {
+  const inputList = document.querySelector("#input-bases")
+  const outputList = document.querySelector("#output-bases")
+
+  createListElements(inputList)
+  createListElements(outputList)
+}
+
 function getSelectedInputBase() {
-  return document.querySelector("#input-bases").value;
+  return document.querySelector("#input-bases").value
 }
 
 function getSelectedOutputBase() {
-  return document.querySelector("#output-bases").value;
+  return document.querySelector("#output-bases").value
+}
+
+function getInputValue() {
+  return document.querySelector("#input-value").value
 }
 
 function convertValues() {
-  const inputBase = getSelectedInputBase();
-  const outputBase = getSelectedOutputBase();
+  const inputBase = getSelectedInputBase()
+  const outputBase = getSelectedOutputBase()
 
-  const inputValue = document.querySelector("#input-value").value;
+  const inputValue = getInputValue()
 
-  const result = convertXToY(inputValue, inputBase, outputBase);
+  const result = main(inputValue, inputBase, outputBase)
 
-  resultElement.value = result;
+  resultElement.value = result
 }
 
-createLists();
+fillLists()

@@ -58,7 +58,8 @@ button:hover {
 }
 
 @media (max-width: 600px) {
-  .main {
+  .main,
+  body {
     flex-direction: column;
   }
 }
