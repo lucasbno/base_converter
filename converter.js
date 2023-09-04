@@ -11,7 +11,7 @@ function decimalToX(input, base, result) {
   base = parseInt(base)
   const currentRemainder = input % base
 
-  console.log(`Função recebeu ${input}, Adiciona o resto ${currentRemainder} para o resultado e chama a função novamente passando ${parseInt(input / base )} para ser divído e o resultado atualizado` )
+  console.log(`Função recebeu ${input}, Adiciona o resto ${currentRemainder} para o resultado e chama a função novamente passando ${parseInt(input / base )} para ser divído` )
 
   result.unshift(currentRemainder)
 
@@ -24,6 +24,7 @@ function decimalToX(input, base, result) {
 }
 
 function xToDecimal(input, base) {
+  console.log('------------------------------------------------------------------')
   let sum = 0
   if (base > 10) {
     input = letterToNumber(input, base)
@@ -37,7 +38,9 @@ function xToDecimal(input, base) {
       throw Error("f")
     }
     sum += item * base ** currentExponent
+    console.log(`o valor ${item} vai ser multiplicado pela base ${base} elevado a ${currentExponent} e será adicionado para a soma total da variavel totalizando ${sum}`)
   }
+  console.log('------------------------------------------------------------------')
   return sum
 }
 
@@ -68,6 +71,7 @@ function letterToNumber(input) {
 
 function main(inputValue, inputBase, outputBase) {
   if (inputBase === "10") return decimalToX(inputValue, outputBase)
+  if (outputBase === "10") return xToDecimal(inputValue, inputBase)
   const decimal = xToDecimal(inputValue, inputBase)
   return decimalToX(decimal, outputBase)
 }
