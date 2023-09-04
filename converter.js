@@ -11,11 +11,7 @@ function decimalToX(input, base, result) {
   base = parseInt(base)
   const currentRemainder = input % base
 
-  console.log(
-    `Função recebeu ${input}, Adiciona o resto ${currentRemainder} para o resultado e chama a função novamente passando ${parseInt(
-      input / base
-    )} para ser divído`
-  )
+  console.log(`Função recebeu ${input}, Adiciona o resto ${currentRemainder} para o resultado e chama a função novamente passando ${parseInt(input / base )} para ser divído e o resultado atualizado` )
 
   result.unshift(currentRemainder)
 
