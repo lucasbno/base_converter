@@ -9,22 +9,22 @@ function decimalToX(input, base, result) {
   if (result === undefined) result = []
 
   base = parseInt(base)
-  const currentRemainder = input % base
 
-  console.log(`Função recebeu ${input}, Adiciona o resto ${currentRemainder} para o resultado e chama a função novamente passando ${parseInt(input / base )} para ser divído` )
+  const currentRemainder = input % base
+  const nextInput = Math.trunc(input / base)
 
   result.unshift(currentRemainder)
 
+  console.log(`função(${nextInput, input}, ${base}) | resto -> ${currentRemainder} | resultado -> ${result}`)
   if (input < base) {
     if (base > 10) return numberToLetter(result).join("")
     return result.join("")
   }
 
-  return decimalToX(parseInt(input / base), base, result)
+  return decimalToX(nextInput, base, result)
 }
 
 function xToDecimal(input, base) {
-  console.log('------------------------------------------------------------------')
   let sum = 0
   if (base > 10) {
     input = letterToNumber(input, base)
@@ -38,9 +38,8 @@ function xToDecimal(input, base) {
       throw Error("f")
     }
     sum += item * base ** currentExponent
-    console.log(`o valor ${item} vai ser multiplicado pela base ${base} elevado a ${currentExponent} e será adicionado para a soma total da variavel totalizando ${sum}`)
+    console.log(`${item} * ${base}^${currentExponent} += ${sum}`)
   }
-  console.log('------------------------------------------------------------------')
   return sum
 }
 
@@ -61,15 +60,13 @@ function letterToNumber(input) {
   for (let i = 0; i < input.length; i++) {
     const item = input[i]
     if (!isNaN(item)) result.push(parseInt(item))
-    else {
-      const letterPosition = letters.indexOf(item) + 10
-      result.push(letterPosition)
-    }
+    else result.push(letters.indexOf(item) + 10)
   }
   return result
 }
 
 function main(inputValue, inputBase, outputBase) {
+  if (inputBase === outputBase) return inputValue
   if (inputBase === "10") return decimalToX(inputValue, outputBase)
   if (outputBase === "10") return xToDecimal(inputValue, inputBase)
   const decimal = xToDecimal(inputValue, inputBase)
