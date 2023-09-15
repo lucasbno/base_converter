@@ -14,7 +14,7 @@ function decimalToX(input, base, result) {
 
   result.unshift(currentRemainder)
 
-  console.log(`função(${nextInput, input}, ${base}) | resto -> ${currentRemainder} | resultado -> ${result}`)
+  console.log(`decimalToX(${nextInput, input}, ${base}) | resto -> ${currentRemainder} | resultado -> ${result}`)
 
   if (input < base) {
     if (base > 10) return numberToLetter(result).join("")
