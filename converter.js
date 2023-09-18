@@ -79,7 +79,6 @@ function checkForLetters(input) {
 }
 
 function main(inputValue, inputBase, outputBase) {
-  if (inputBase === outputBase) return inputValue
   if (inputBase === "10") return decimalToX(inputValue, outputBase)
   if (outputBase === "10") return xToDecimal(inputValue, inputBase)
 
