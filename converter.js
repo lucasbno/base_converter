@@ -1,12 +1,13 @@
 const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 function decimalToX(input, base, result) {
-  if (/^[a-zA-Z]+$/.test(input)) {
-    alert("Valor não permitido para a base selecionada")
-    throw Error("f")
+  if (result === undefined) {
+    if (checkForLetters(input)) {
+      alert("Valor não permitido para a base selecionada")
+      throw Error("f")
+    }
+    result = []
   }
-
-  if (result === undefined) result = []
 
   base = parseInt(base)
   const currentRemainder = input % base
@@ -63,11 +64,18 @@ function letterToNumber(input) {
 
   for (let i = 0; i < input.length; i++) {
     const item = input[i]
-    if (!isNaN(item)) result.push(parseInt(item))
-    else result.push(letters.indexOf(item) + 10)
+    if (checkForLetters(item)) result.push(letters.indexOf(item) + 10)
+    else result.push(parseInt(item))
   }
 
   return result
+}
+
+function checkForLetters(input) {
+  for (let i = 0; i < input.length; i++) {
+    if (isNaN(input[i])) return true
+  }
+  return false
 }
 
 function main(inputValue, inputBase, outputBase) {
