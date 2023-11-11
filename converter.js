@@ -1,6 +1,6 @@
 const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
-function decimalToX(input, base, result) {
+function decimalToAny(input, base, result) {
   if (result === undefined) {
     if (checkForLetters(input)) {
       alert("Valor não permitido para a base selecionada")
@@ -15,17 +15,17 @@ function decimalToX(input, base, result) {
 
   result.unshift(currentRemainder)
 
-  console.log(`decimalToX(${nextInput, input}, ${base}) | resto -> ${currentRemainder} | resultado -> ${result}`)
+  console.log(`decimalToAny(${input}, ${base}) | resto -> ${currentRemainder} | resultado -> ${result}`)
 
   if (input < base) {
     if (base > 10) return numberToLetter(result).join("")
     return result.join("")
   }
 
-  return decimalToX(nextInput, base, result)
+  return decimalToAny(nextInput, base, result)
 }
 
-function xToDecimal(input, base) {
+function anyToDecimal(input, base) {
   let sum = 0
 
   if (base > 10) {
@@ -79,9 +79,9 @@ function checkForLetters(input) {
 }
 
 function main(inputValue, inputBase, outputBase) {
-  if (inputBase === "10") return decimalToX(inputValue, outputBase)
-  if (outputBase === "10") return xToDecimal(inputValue, inputBase)
+  if (inputBase === "10") return decimalToAny(inputValue, outputBase)
+  if (outputBase === "10") return anyToDecimal(inputValue, inputBase)
 
-  const decimal = xToDecimal(inputValue, inputBase)
-  return decimalToX(decimal, outputBase)
+  const decimal = anyToDecimal(inputValue, inputBase)
+  return decimalToAny(decimal, outputBase)
 }
